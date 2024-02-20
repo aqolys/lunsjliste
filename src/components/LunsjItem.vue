@@ -23,7 +23,7 @@ export default {
 
 <template>
   <Button
-    class="blured w-full relative flex justify-between items-center"
+    class="blured w-full relative px-1 flex justify-between items-center"
     variant="outline"
   >
     <Badge variant="outline">{{ id }}</Badge>

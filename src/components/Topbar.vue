@@ -63,4 +63,10 @@ export default {
   </div>
 </template>
 
-<style></style>
+<style lang="scss" scoped>
+@media screen and (max-width: 480px) {
+  #search {
+    width: calc(100vw - 8px);
+  }
+}
+</style>

@@ -81,4 +81,10 @@ export default {
     margin: 5px 0 5px 0;
   }
 }
+
+@media screen and (max-width: 480px) {
+  .order-list {
+    width: calc(100vw - 8px);
+  }
+}
 </style>
