@@ -52,7 +52,7 @@ export default {
       </div>
     </div>
     <ul>
-      <li v-for="(item, i) in this.results" :key="i">{{ item }}</li>
+      <li v-for="(item, i) in results" :key="i">{{ item }}</li>
     </ul>
   </div>
 </template>

@@ -25,7 +25,7 @@ export default {
 <template>
   <div>
     <ul>
-      <li class="pt-2" v-for="(item, i) in this.app.searchResults" :key="i">
+      <li class="pt-2" v-for="(item, i) in app.searchResults" :key="i">
         <Button
           class="w-full relative flex justify-between items-center"
           variant="outline"

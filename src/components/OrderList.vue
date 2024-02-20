@@ -25,12 +25,12 @@ export default {
     <div class="flex justify-between items-center cursor-pointer select-none">
       <span class="flex items-center text-base pl-1 pb-2">
         <SewingPinFilledIcon />
-        <p>ordreliste ({{ this.app.selected.length }})</p>
+        <p>ordreliste ({{ app.selected.length }})</p>
       </span>
       <ChevronUpIcon />
     </div>
-    <ul v-if="this.app.selected">
-      <li v-for="(item, i) in this.app.selected" :key="i">
+    <ul v-if="app.selected">
+      <li v-for="(item, i) in app.selected" :key="i">
         <Button
           class="w-full relative flex justify-between items-center"
           variant="outline"
