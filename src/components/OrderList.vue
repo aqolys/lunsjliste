@@ -37,7 +37,7 @@ export default {
 
 <template>
   <div
-    class="order-list blured px-2 fixed w-full rounded-t-lg"
+    class="order-list blured px-2 fixed rounded-t-lg"
     :style="this.isOpened ? this.styleObject : null"
   >
     <div
@@ -72,6 +72,9 @@ export default {
   // background-color: hsl(var(--background));
   border-width: 1px;
   top: calc(100% - 45px);
+  max-width: 592px;
+  width: 100%;
+  margin: 0 4px 0 4px;
 
   &__heading {
     height: 35px;
