@@ -1,61 +1,85 @@
-import { defineStore } from 'pinia'
+import { defineStore } from "pinia";
 
-export const useApp = defineStore('app', {
+export const useApp = defineStore("app", {
   state: () => ({
-    cat: ['Sandwicher', 'Salater'],
     lunsj: [
       {
-        name: 'Bistecca Sandwich',
-        cat: 'Sandwicher',
+        id: 1,
+        name: "Bistecca Sandwich",
+        cat: "Sandwich",
+        selected: false,
       },
       {
-        name: 'Bocadillo Sandwich',
-        cat: 'Sandwicher',
+        id: 2,
+        name: "Bocadillo Sandwich",
+        cat: "Sandwich",
+        selected: false,
       },
       {
-        name: 'Chevre Sandwich',
-        cat: 'Sandwicher',
+        id: 3,
+        name: "Chevre Sandwich",
+        cat: "Sandwich",
+        selected: false,
       },
       {
-        name: 'Reke Sandwich',
-        cat: 'Sandwicher',
+        id: 4,
+        name: "Reke Sandwich",
+        cat: "Sandwich",
+        selected: false,
       },
       {
-        name: 'Reke Sandwich',
-        cat: 'Sandwicher',
+        id: 5,
+        name: "Kylling Sandwich",
+        cat: "Sandwich",
+        selected: false,
       },
       {
-        name: 'Kylling Sandwich',
-        cat: 'Sandwicher',
+        id: 6,
+        name: "Cæsar Salat",
+        cat: "Sandwich",
+        selected: false,
       },
       {
-        name: 'Cæsar Salat',
-        cat: 'Salater',
+        id: 7,
+        name: "Lun Chevre Salat med rødbeter",
+        cat: "Salat",
+        selected: false,
       },
       {
-        name: 'Lun Chevre Salat med rødbeter',
-        cat: 'Salater',
-      },
-      {
-        name: 'Boqueria spesial Salat',
-        cat: 'Salater',
+        id: 8,
+        name: "Boqueria spesial Salat",
+        cat: "Salat",
+        selected: false,
       },
     ],
     selected: [],
-    filter: '',
+    searchResults: [],
+    filter: "",
   }),
   actions: {
-    searchLunsj() {},
+    searchLunsj(payload) {
+      this.searchResults = this.lunsj.filter(
+        (item) => item.name.toLowerCase().indexOf(payload.toLowerCase()) > -1
+      );
+
+      console.log(`payload: ${payload}\nresult: ${this.searchResults}`);
+    },
+
+    addLunsj(payload) {
+      this.selected.push(payload);
+      this.lunsj.splice(this.lunsj.indexOf(payload), 1);
+      console.log(this.lunsj);
+    },
   },
   getters: {
     getLunsjList() {
       if (!this.filter) {
-        return this.lunsj
+        return this.lunsj;
       } else {
         return this.lunsj.filter((item) => {
-          if (item.cat === 'Sandwicher') return item
-        })
+          if (item.cat === "Sandwicher") return item;
+        });
       }
     },
   },
-})
+});
