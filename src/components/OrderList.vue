@@ -1,9 +1,7 @@
 <script>
 import { useApp } from "@/stores";
 
-import { SewingPinFilledIcon } from "@radix-icons/vue";
-import { ChevronUpIcon } from "@radix-icons/vue";
-
+import { SewingPinFilledIcon, ChevronUpIcon } from "@radix-icons/vue";
 import { Button } from "@/components/ui/button";
 
 export default {
