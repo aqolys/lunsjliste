@@ -1,5 +1,5 @@
 <script>
-import Home from '@/components/Home.vue'
+import Home from '@/views/Home.vue'
 
 export default {
   components: {
@@ -9,9 +9,6 @@ export default {
 </script>
 
 <template>
-  <!-- <header class="p-4">
-    <span class="text-4xl font-bold tracking-tight">Lunsjliste</span>
-  </header> -->
   <main>
     <Home />
   </main>
