@@ -10,6 +10,7 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore"
   },
   "dependencies": {
+    "@formkit/auto-animate": "^0.8.1",
     "@radix-icons/vue": "^1.0.0",
     "@vueuse/core": "^10.7.2",
     "class-variance-authority": "^0.7.0",
@@ -19,7 +20,8 @@
     "sass": "^1.71.0",
     "tailwind-merge": "^2.2.1",
     "tailwindcss-animate": "^1.0.7",
-    "vue": "^3.4.15"
+    "vue": "^3.4.15",
+    "whatamesh": "^0.2.0"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.3",
