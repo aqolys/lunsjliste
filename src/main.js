@@ -1,19 +1,12 @@
-import './assets/main.css'
+import "./assets/main.css";
 
-import { createApp } from 'vue'
-import { createPinia } from 'pinia'
-import { Gradient } from 'whatamesh'
-import { autoAnimatePlugin } from '@formkit/auto-animate/vue'
+import { createApp } from "vue";
+import { createPinia } from "pinia";
 
-import App from './App.vue'
+import App from "./App.vue";
 
-const app = createApp(App)
+const app = createApp(App);
 
-app.use(createPinia())
-app.use(autoAnimatePlugin)
+app.use(createPinia());
 
-app.mount('#app')
-
-const gradient = new Gradient()
-
-gradient.initGradient('#gradient-canvas')
+app.mount("#app");

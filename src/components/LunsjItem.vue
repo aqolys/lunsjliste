@@ -1,14 +1,14 @@
 <script>
-import { useApp } from '@/stores'
+import { useApp } from "@/stores";
 
-import { Button } from '@/components/ui/button'
-import { Badge } from '@/components/ui/badge'
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 
 export default {
   data() {
     return {
       app: useApp(),
-    }
+    };
   },
   components: {
     Button,
@@ -18,7 +18,7 @@ export default {
     id: Number,
     cat: String,
   },
-}
+};
 </script>
 
 <template>
@@ -27,8 +27,8 @@ export default {
     variant="outline"
   >
     <Badge variant="outline">{{ id }}</Badge>
-    <p class="font-medium"><slot /></p>
-    <Badge class="text-md" variant="outline">{{ cat }}</Badge>
+    <p class="font-medium text-ellipsis overflow-hidden ..."><slot /></p>
+    <Badge class="text-md" variant="secondary">{{ cat }}</Badge>
   </Button>
 </template>
 
