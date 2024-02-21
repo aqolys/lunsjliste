@@ -1,23 +1,23 @@
 <script>
-import { useApp } from "@/stores";
+import { useApp } from '@/stores'
 
-import LunsjItem from "@/components/LunsjItem.vue";
+import LunsjItem from '@/components/LunsjItem.vue'
 
 export default {
   data() {
     return {
       app: useApp(),
-    };
+    }
   },
   components: {
     LunsjItem,
   },
   methods: {
     onLunsj(id) {
-      this.app.addLunsj(id);
+      this.app.addLunsj(id)
     },
   },
-};
+}
 </script>
 
 <template>
@@ -41,7 +41,7 @@ export default {
 
 <style lang="scss" scoped>
 .lunsj-list {
-  height: calc(100vh - 116px);
+  height: calc(100dvh - 116px);
   overflow-y: scroll;
   overflow-x: hidden;
 }

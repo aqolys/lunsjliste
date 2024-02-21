@@ -1,29 +1,29 @@
 <script>
-import { useApp } from "@/stores";
+import { useApp } from '@/stores'
 
-import LunsjItem from "@/components/LunsjItem.vue";
+import LunsjItem from '@/components/LunsjItem.vue'
 
-import { ref } from "vue";
+import { ref } from 'vue'
 
 export default {
   data() {
     return {
       app: useApp(),
       isOpened: ref(false),
-    };
+    }
   },
   components: {
     LunsjItem,
   },
   methods: {
     onLunsj(lunsj) {
-      this.app.removeOrder(lunsj);
+      this.app.removeOrder(lunsj)
     },
     clearList() {
-      this.app.clearOrderList();
+      this.app.clearOrderList()
     },
   },
-};
+}
 </script>
 
 <template>
@@ -40,7 +40,7 @@ export default {
 
 <style lang="scss" scoped>
 .orders-list {
-  height: calc(100vh - 116px);
+  height: calc(100dvh - 116px);
   overflow-y: scroll;
   overflow-x: hidden;
 }
