@@ -14,12 +14,16 @@ export const useApp = defineStore('app', {
     searchLunsj() {
       if (this.searchInputValue) {
         this.isSearched = true
-        this.searchResults = this.lunsj.filter(
-          (item) =>
+        this.searchResults = this.lunsj.filter((item) => {
+          if (
             item.name
               .toLowerCase()
-              .indexOf(this.searchInputValue.toLowerCase()) > -1
-        )
+              .indexOf(this.searchInputValue.toLowerCase()) > -1 &&
+            !item.selected
+          ) {
+            return item
+          }
+        })
       } else {
         this.searchResults = []
         this.isSearched = false
@@ -44,6 +48,10 @@ export const useApp = defineStore('app', {
     removeOrder(payload) {
       this.orders = this.orders.filter((order) => {
         if (order.id !== payload) return order
+
+        this.lunsj.filter((item) => {
+          if (item.id === order.id) item.selected = false
+        })
       })
 
       if (this.isSearched) this.searchLunsj()
