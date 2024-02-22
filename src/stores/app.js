@@ -28,20 +28,16 @@ export const useApp = defineStore('app', {
 
     addLunsj(payload) {
       this.lunsj.filter((item) => {
-        if (
-          item.id === payload &&
-          this.orders.filter((order) => order.id === payload).length === 0
-        ) {
-          this.orders.push({ ...item, count: 1 })
-        } else if (
-          item.id === payload &&
-          this.orders.filter((order) => order.id === payload).length > 0
-        ) {
-          this.orders.filter((order) => {
-            if (order.id === payload) order.count += 1
-          })
+        if (item.id === payload) {
+          item.selected = true
+          this.orders.push(item)
         }
       })
+      if (this.isSearched) {
+        this.searchResults = this.searchResults.filter(
+          (item) => item.id !== payload
+        )
+      }
     },
 
     removeOrder(payload) {
