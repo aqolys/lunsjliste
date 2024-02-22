@@ -1,32 +1,29 @@
 <script>
-import { useApp } from "@/stores";
+import { useApp } from '@/stores'
 
-import LunsjItem from "@/components/LunsjItem.vue";
-
-import { ref } from "vue";
+import LunsjItem from '@/components/LunsjItem.vue'
 
 export default {
   data() {
     return {
       app: useApp(),
-      isOpened: ref(false),
-    };
+    }
   },
   components: {
     LunsjItem,
   },
   methods: {
     onLunsj(lunsj) {
-      this.app.removeOrder(lunsj);
+      this.app.removeOrder(lunsj)
     },
     clearList() {
-      this.app.clearOrderList();
+      this.app.clearOrderList()
     },
   },
   mounted() {
-    console.log(this.app.getOrderList.length);
+    console.log(this.app.getOrderList.length)
   },
-};
+}
 </script>
 
 <template>
@@ -38,7 +35,6 @@ export default {
         </LunsjItem>
       </li>
     </ul>
-    <div v-else>X</div>
   </div>
 </template>
 

@@ -1,8 +1,8 @@
 <script>
-import { useApp } from "@/stores";
+import { useApp } from '@/stores'
 
-import { MagnifyingGlassIcon, Cross1Icon } from "@radix-icons/vue";
-import { Input } from "@/components/ui/input";
+import { MagnifyingGlassIcon, Cross1Icon } from '@radix-icons/vue'
+import { Input } from '@/components/ui/input'
 
 export default {
   components: {
@@ -13,21 +13,20 @@ export default {
   data() {
     return {
       app: useApp(),
-      search: "",
       results: [],
-    };
+    }
   },
   methods: {
     onChange() {
-      this.app.searchLunsj(this.search);
+      this.app.searchLunsj()
     },
     clearInput() {
-      this.search = "";
-      this.app.searchLunsj("");
+      this.app.searchInputValue = ''
+      this.app.searchLunsj()
     },
   },
   mounted() {},
-};
+}
 </script>
 
 <template>
@@ -38,10 +37,10 @@ export default {
           id="search"
           type="text"
           placeholder="Søk..."
-          v-model="search"
+          v-model="app.searchInputValue"
           autocomplete="off"
           class="blured pl-10 text-lg h-12 bg-background"
-          @input="onChange($event)"
+          @input="onChange"
         />
         <span
           class="absolute start-0 inset-y-0 flex items-center justify-center px-2"
@@ -50,7 +49,7 @@ export default {
         </span>
         <span
           class="absolute end-2 inset-y-0 flex items-center justify-center px-2 cursor-pointer"
-          v-if="this.search"
+          v-if="app.searchInputValue"
           @click="clearInput"
         >
           <Cross1Icon class="size-6 text-muted-foreground" />

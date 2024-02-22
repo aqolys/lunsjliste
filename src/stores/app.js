@@ -613,14 +613,18 @@ export const useApp = defineStore('app', {
     selected: [],
     isSearched: false,
     searchResults: [],
-    filter: '',
+    searchInputValue: '',
+    activeTab: 'orders',
   }),
   actions: {
-    searchLunsj(payload) {
-      if (payload) {
+    searchLunsj() {
+      if (this.searchInputValue) {
         this.isSearched = true
         this.searchResults = this.lunsj.filter(
-          (item) => item.name.toLowerCase().indexOf(payload.toLowerCase()) > -1
+          (item) =>
+            item.name
+              .toLowerCase()
+              .indexOf(this.searchInputValue.toLowerCase()) > -1
         )
       } else {
         this.searchResults = []
@@ -658,6 +662,10 @@ export const useApp = defineStore('app', {
           item.selected = false
         }
       })
+    },
+
+    changeActiveTab(payload) {
+      this.activeTab = payload
     },
   },
   getters: {

@@ -1,16 +1,16 @@
 <script>
-import { useApp } from "@/stores";
+import { useApp } from '@/stores'
 
-import Topbar from "@/components/Topbar.vue";
-import LunsjList from "@/components/LunsjList.vue";
-import OrderList from "@/components/OrderList.vue";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import Topbar from '@/components/Topbar.vue'
+import LunsjList from '@/components/LunsjList.vue'
+import OrderList from '@/components/OrderList.vue'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 
 export default {
   data() {
     return {
       app: useApp(),
-    };
+    }
   },
   components: {
     Topbar,
@@ -21,7 +21,12 @@ export default {
     TabsList,
     TabsTrigger,
   },
-};
+  methods: {
+    onClickTab(tab) {
+      this.app.changeActiveTab(tab)
+    },
+  },
+}
 </script>
 
 <template>
@@ -49,10 +54,12 @@ export default {
         </div>
       </TabsContent>
       <TabsList class="tab-footer grid w-full grid-cols-2">
-        <TabsTrigger value="orders">
+        <TabsTrigger value="orders" @click="onClickTab('orders')">
           Bestillinger ({{ app.getOrderList.length }})
         </TabsTrigger>
-        <TabsTrigger value="list"> Søk </TabsTrigger>
+        <TabsTrigger value="list" @click="onClickTab('list')">
+          Søk
+        </TabsTrigger>
       </TabsList>
     </Tabs>
   </div>

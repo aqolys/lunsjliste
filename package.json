@@ -20,8 +20,7 @@
     "sass": "^1.71.0",
     "tailwind-merge": "^2.2.1",
     "tailwindcss-animate": "^1.0.7",
-    "vue": "^3.4.15",
-    "whatamesh": "^0.2.0"
+    "vue": "^3.4.15"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.3",

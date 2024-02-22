@@ -98,6 +98,11 @@
   font-weight: normal;
 }
 
+html {
+  -webkit-text-size-adjust: none;
+  touch-action: manipulation;
+}
+
 body {
   min-height: 100dvh;
   margin: auto;
