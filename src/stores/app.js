@@ -33,6 +33,7 @@ export const useApp = defineStore('app', {
           this.orders.push(item)
         }
       })
+
       if (this.isSearched) {
         this.searchResults = this.searchResults.filter(
           (item) => item.id !== payload
@@ -44,9 +45,19 @@ export const useApp = defineStore('app', {
       this.orders = this.orders.filter((order) => {
         if (order.id !== payload) return order
       })
+
+      if (this.isSearched) this.searchLunsj()
     },
 
     clearOrderList() {
+      this.orders.filter((order) => {
+        this.lunsj.filter((item) => {
+          if (item.id === order.id) item.selected = false
+        })
+      })
+
+      if (this.isSearched) this.searchLunsj()
+
       this.orders = []
     },
 
