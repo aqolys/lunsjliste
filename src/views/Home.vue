@@ -36,7 +36,7 @@ export default {
         <div class="flex-row">
           <div class="tab-header flex items-center justify-between">
             <span class="text-2xl pl-2"
-              >📌 Bestillinger ({{ app.getOrderList.length }})</span
+              >📌 Bestillinger ({{ app.orders.length }})</span
             >
             <span
               class="p-2 underline cursor-pointer"
@@ -55,7 +55,7 @@ export default {
       </TabsContent>
       <TabsList class="tab-footer grid w-full grid-cols-2">
         <TabsTrigger value="orders" @click="onClickTab('orders')">
-          Bestillinger ({{ app.getOrderList.length }})
+          Bestillinger ({{ app.orders.length }})
         </TabsTrigger>
         <TabsTrigger value="list" @click="onClickTab('list')">
           Søk

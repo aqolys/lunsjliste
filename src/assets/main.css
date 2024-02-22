@@ -133,7 +133,7 @@ body {
 
 .blured {
   background-color: rgb(0 0 0 / 70%);
-  backdrop-filter: blur(10px);
+  /* backdrop-filter: blur(10px); */
 }
 
 #gradient-canvas {

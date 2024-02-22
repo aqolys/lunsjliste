@@ -22,20 +22,38 @@ export default {
 
 <template>
   <div class="lunsj-list p-1">
-    <ul v-if="this.app.isSearched">
-      <li class="pb-2" v-for="(item, i) in this.app.searchResults" :key="i">
+    <ul v-auto-animate v-if="app.isSearched">
+      <li class="pb-2" v-for="item in app.searchResults" :key="item">
         <LunsjItem :id="item.id" :cat="item.cat" @click="onLunsj(item.id)">
           {{ item.name }}
         </LunsjItem>
       </li>
     </ul>
-    <ul v-if="!this.app.isSearched">
-      <li class="pb-2" v-for="(item, i) in this.app.getLunsjList" :key="i">
+    <ul v-auto-animate v-else>
+      <li class="pb-2" v-for="item in app.getLunsjList" :key="item">
         <LunsjItem :id="item.id" :cat="item.cat" @click="onLunsj(item.id)">
           {{ item.name }}
         </LunsjItem>
       </li>
     </ul>
+    <!-- <RecycleScroller
+      :items="app.getLunsjList"
+      :item-size="8"
+      :emitUpdate="true"
+      key-field="id"
+      v-slot="{ item }"
+      v-auto-animate
+      v-else
+    >
+      <LunsjItem
+        class="pb-2"
+        :id="item.id"
+        :cat="item.cat"
+        @click="onLunsj(item.id)"
+      >
+        {{ item.name }}
+      </LunsjItem>
+    </RecycleScroller> -->
   </div>
 </template>
 
