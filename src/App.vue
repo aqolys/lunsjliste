@@ -17,7 +17,9 @@ export default {
 
 <template>
   <main class="h-full">
-    <div class="absolute w-80 inset-y-36 -z-50 left-2/4 -translate-x-1/2">
+    <div
+      class="fixed w-80 -z-50 left-2/4 top-2/4 -translate-x-1/2 -translate-y-1/2"
+    >
       <div
         class="text-center"
         :class="{
