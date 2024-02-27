@@ -1,90 +1,35 @@
 import { defineStore } from 'pinia'
-import { lunsjList } from './data'
+import { lunsjList } from '@/data/lunches'
 
 export const useApp = defineStore('app', {
   state: () => ({
     lunsj: lunsjList,
     orders: [],
-    isSearched: false,
-    searchResults: [],
     searchInputValue: '',
     activeTab: 'orders',
   }),
   actions: {
-    searchLunsj() {
-      if (this.searchInputValue) {
-        this.isSearched = true
-        this.searchResults = this.lunsj.filter((item) => {
-          if (
-            item.name
-              .toLowerCase()
-              .indexOf(this.searchInputValue.toLowerCase()) > -1 &&
-            !item.selected
-          ) {
-            return item
-          }
-        })
-      } else {
-        this.searchResults = []
-        this.isSearched = false
-      }
+    addLunsj(id) {
+      const order = this.lunsj.find(el => el.id === id)
+
+      // Eсли ордер по переданному id не найден
+      // или уже добавлен список ордеров - выходим из функции.
+      if (!order || this.orders.find(el => el.id === id)) return
+      
+      this.orders.push(order)
     },
 
-    addLunsj(payload) {
-      this.lunsj.filter((item) => {
-        if (item.id === payload) {
-          item.selected = true
-          this.orders.push(item)
-        }
-      })
-
-      if (this.isSearched) {
-        this.searchResults = this.searchResults.filter(
-          (item) => item.id !== payload
-        )
-      }
-    },
-
-    removeOrder(payload) {
-      this.orders = this.orders.filter((order) => {
-        if (order.id !== payload) return order
-
-        this.lunsj.filter((item) => {
-          if (item.id === order.id) item.selected = false
-        })
-      })
-
-      if (this.isSearched) this.searchLunsj()
+    removeOrder(id) {
+      // Фильтруем список, исключая искомый ордер.
+      this.orders = this.orders.filter(el => el.id !== id)
     },
 
     clearOrderList() {
-      this.orders.filter((order) => {
-        this.lunsj.filter((item) => {
-          if (item.id === order.id) item.selected = false
-        })
-      })
-
-      if (this.isSearched) this.searchLunsj()
-
       this.orders = []
     },
 
-    changeActiveTab(payload) {
-      this.activeTab = payload
-    },
-  },
-  getters: {
-    getLunsjList() {
-      if (!this.isSearched) {
-        return this.lunsj.filter((item) => {
-          if (!item.selected) return item
-        })
-      }
-    },
-    getOrderList() {
-      return this.lunsj.filter((item) => {
-        if (item.selected) return item
-      })
+    changeActiveTab(tab) {
+      this.activeTab = tab
     },
   },
 })
