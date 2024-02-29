@@ -1,10 +1,9 @@
 <script>
 import { useApp } from '@/stores'
 
-import Topbar from '@/components/Topbar.vue'
-import LunsjList from '@/components/LunsjList.vue'
-import OrderList from '@/components/OrderList.vue'
+import { OrdersTab } from '@/components/order-list'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
+import { LunsjTab } from '@/components/lunsj-list'
 
 export default {
   data() {
@@ -13,13 +12,12 @@ export default {
     }
   },
   components: {
-    Topbar,
-    OrderList,
-    LunsjList,
     Tabs,
     TabsContent,
     TabsList,
     TabsTrigger,
+    LunsjTab,
+    OrdersTab
   },
   methods: {
     onClickTab(tab) {
@@ -31,27 +29,12 @@ export default {
 
 <template>
   <div class="flex-row h-full relative">
-    <Tabs default-value="orders" class="w-full">
+    <Tabs default-value="orders" class="w-full h-[100dvh]">
       <TabsContent value="orders">
-        <div class="flex-row">
-          <div class="tab-header flex items-center justify-between">
-            <span class="text-2xl pl-2"
-              >📌 Bestillinger ({{ app.orders.length }})</span
-            >
-            <span
-              class="p-2 underline cursor-pointer"
-              @click="app.clearOrderList"
-              >tømme listen</span
-            >
-          </div>
-          <OrderList />
-        </div>
+        <OrdersTab />
       </TabsContent>
       <TabsContent value="list">
-        <div class="flex-row">
-          <Topbar />
-          <LunsjList />
-        </div>
+        <LunsjTab />
       </TabsContent>
       <TabsList class="tab-footer grid w-full grid-cols-2">
         <TabsTrigger value="orders" @click="onClickTab('orders')">

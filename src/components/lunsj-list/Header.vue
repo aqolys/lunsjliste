@@ -13,19 +13,14 @@ export default {
   data() {
     return {
       app: useApp(),
-      results: [],
     }
   },
   methods: {
-    onChange() {
-      this.app.searchLunsj()
-    },
     clearInput() {
       this.app.searchInputValue = ''
       this.app.searchLunsj()
     },
   },
-  mounted() {},
 }
 </script>
 
@@ -56,10 +51,5 @@ export default {
         </span>
       </div>
     </div>
-    <ul>
-      <li v-for="(item, i) in this.results" :key="i">{{ item }}</li>
-    </ul>
   </div>
 </template>
-
-<style lang="scss" scoped></style>

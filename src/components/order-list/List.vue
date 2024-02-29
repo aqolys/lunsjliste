@@ -60,7 +60,7 @@ export default {
 
 <style lang="scss" scoped>
 .orders-list {
-  height: calc(100dvh - 116px);
+  height: calc(100dvh - 100px);
   overflow-y: scroll;
   overflow-x: hidden;
 }

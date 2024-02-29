@@ -5,11 +5,6 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 
 export default {
-  data() {
-    return {
-      app: useApp(),
-    };
-  },
   components: {
     Button,
     Badge,
@@ -17,6 +12,11 @@ export default {
   props: {
     id: Number,
     cat: String,
+  },
+  data() {
+    return {
+      app: useApp(),
+    };
   },
 };
 </script>
@@ -26,10 +26,14 @@ export default {
     class="blured w-full relative px-1 flex justify-between items-center"
     variant="outline"
   >
-    <Badge variant="outline">{{ id }}</Badge>
-    <p class="font-medium text-ellipsis overflow-hidden ..."><slot /></p>
-    <Badge class="text-md" variant="secondary">{{ cat }}</Badge>
+    <Badge variant="outline">
+      {{ id }}
+    </Badge>
+    <p class="font-medium text-ellipsis overflow-hidden ...">
+      <slot />
+    </p>
+    <Badge class="text-md" variant="secondary">
+      {{ cat }}
+    </Badge>
   </Button>
 </template>
-
-<style lang="scss" scoped></style>
